@@ -7,8 +7,8 @@ const getAll = async (_req, res, next) => {
     const result = await productsService.getAll();
     // if (!result || result.length === 0) return res.status(404).json(message);
     return res.status(200).json(result);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -18,8 +18,8 @@ const getById = async (req, res, next) => {
     const [result] = await productsService.getById(id);
     if (!result || result.length === 0) return res.status(404).json(message);
     return res.status(200).json(result);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -28,8 +28,8 @@ const addProduct = async (req, res, next) => {
     const { name } = req.body;
     const response = await productsService.addProduct(name);
     return res.status(201).json(response);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
