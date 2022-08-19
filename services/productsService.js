@@ -17,8 +17,9 @@ const update = async ({ name, id }) => {
 };
 
 const destroy = async (id) => {
-  const validation = await productsModel.getById(id);
-  if (!validation || validation.message) return null;
+  const validation = await getById(id);
+  console.log(validation);
+  if (!validation) return null;
   return productsModel.destroy(id);
 };
 

@@ -51,7 +51,7 @@ const destroy = async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await productsService.destroy(id);
-    if (result === null) return res.status(404).json(message);
+    if (!result) return res.status(404).json(message);
     return res.status(204).end();
   } catch (error) {
     next(error);

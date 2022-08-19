@@ -23,8 +23,7 @@ const update = async ({ name, id }) => {
   return { id, name };
 };
 
-const destroy = async (id) => connection
-  .execute('DELETE FROM products WHERE id = ?;', [id]);
+const destroy = async (id) => connection.execute('DELETE FROM products WHERE id = ?;', [id]);
 
 module.exports = {
   getAll,
