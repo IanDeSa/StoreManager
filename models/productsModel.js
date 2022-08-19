@@ -18,8 +18,18 @@ const addProduct = async (name) => {
   return { id: product.insertId, name };
 };
 
+const update = async ({ name, id }) => {
+  await connection.execute('UPDATE products SET name = ? WHERE id = ?;', [name, id]);
+  return { id, name };
+};
+
+const destroy = async (id) => connection
+  .execute('DELETE FROM products WHERE id = ?;', [id]);
+
 module.exports = {
   getAll,
   getById,
   addProduct,
+  update,
+  destroy,
 };
